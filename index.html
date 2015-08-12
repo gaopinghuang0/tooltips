@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lightbox</title>
+	<link href="./static/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="./static/js/libs/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="./static/js/lightbox.js"></script>
+</head>
+<body>
+<div>
+	<p></p>
+	<button class="type-1"></button>
+</div>
+<div>
+	<p></p>
+	<button class="type-2"></button>
+</div>
+<!-- 	<div id="g-lightbox-mask"></div>
+	<div id="g-lightbox-popup">
+		<div class="lightbox-pic-view">
+			<span class="lightbox-btn lightbox-btn-prev lightbox-btn-prev-show"></span>
+			<img src="./static/images/2-2.jpg" class="lightbox-image" alt="" width="100%">
+			<span class="lightbox-btn lightbox-btn-next lightbox-btn-next-show"></span>
+		</div>
+		<div class="lightbox-pic-caption">
+			<div class="lightbox-caption-area">
+				<p class="lightbox-pic-desc">Caption</p>
+				<span class="lightbox-of-index">index: 1 of 4</span>
+			</div>
+			<span class="lightbox-close-btn"></span>
+		</div>
+	</div>
+ -->
+
+	<script>
+	$(function() {
+		var lightbox = new LightBox({
+			speed: 500,
+			maxWidth: 600,
+			maxHeight: 500
+		});
+	});
+	</script>
+</body>
+</html>

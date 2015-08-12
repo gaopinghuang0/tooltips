@@ -3,60 +3,61 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
-@import "compass/css3";
+ @import "compass/reset";
+ @import "compass/css3";
 
-body {
-	font-size: 14px;
-	font-family: Helvetica, arial, sans-serif;
-}
-button {
-	cursor: pointer;
-}
-.demo {
-	width: 300px;
-	height: 200px;
-	margin: 30px auto;
-}
-.type-1 {
-	position: relative;
-	&:hover .tooltip-1 {
-				display: block;
-	}
+ body {
+ 	font-size: 14px;
+ 	font-family: Helvetica, arial, sans-serif;
+ }
+ button {
+ 	cursor: pointer;
+ }
+ .demo {
+ 	width: 300px;
+ 	height: 200px;
+ 	margin: 30px auto;
+ }
+ .type-1 {
+ 	position: relative;
+ 	&:hover .tooltip-1 {
+ 		display: block;
+ 	}
 
-	@at-root {
-		.tooltip-1 {
-			position: absolute;
-			background: rgba(0, 0, 0, .8);
-			color: #fff;
-			@include border-radius(3px);
-			vertical-align: middle;
-			text-align: center;
-			word-wrap: break-word;
-			padding: 5px 8px;
-			white-space: pre;
-			z-index: 10000;
-			left: 0;
-			margin: 10px 0 0 -30px;
-			display: none;
-			
+ 	@at-root {
+ 		.tooltip-1 {
+ 			position: absolute;
+ 			background: rgba(0, 0, 0, .8);
+ 			color: #fff;
+ 			@include border-radius(3px);
+ 			vertical-align: middle;
+ 			text-align: center;
+ 			word-wrap: break-word;
+ 			padding: 5px 8px;
+ 			white-space: pre;
+ 			z-index: 10000;
+ 			left: 0;
+ 			margin: 10px 0 0 -30px;
+ 			display: none;
 
-			&:before {
-				position: absolute;
-				z-index: 10001;
-				width: 0;
-				height: 0;
-				color: rgba(0, 0, 0, .8);
-				pointer-events: none;
-				content: "";
-				border: 5px solid rgba(0,0,0,0);
-				top: 0px !important;
-				margin-top: -10px;
-			}
 
-		}
-	}
-}
+ 			&:before {
+ 				position: absolute;
+ 				z-index: 10001;
+ 				width: 0;
+ 				height: 0;
+ 				color: rgba(0, 0, 0, .8);
+ 				pointer-events: none;
+ 				content: "";
+ 				border: 5px solid rgba(0,0,0,0);
+ 				border-bottom-color: rgba(0,0,0,.8);
+ 				top: 0px !important;
+ 				margin-top: -10px;
+ 			}
+
+ 		}
+ 	}
+ }
 
 // center, left, right for small triangle
 .tooltipped-c, .tooltipped-l, .tooltipped-r {
@@ -65,10 +66,66 @@ button {
 		right: 50%;
 		bottom: -5px;
 		margin-right: -5px;
-		border-bottom-color: rgba(0,0,0,.8);
+	}
+
+	&:after {
+		top: 100%;
+		right: 50%;
+		margin-top: 5px;
+	}
+}
+
+.tooltipped-c {
+	&:after {
+		@include translateX(50%);
+	}
+}
+.tooltipped-l {
+	&:after {
+		right: auto;
+		left: 50%;
+		margin-left: -15px;
 	}
 }
 
 .tooltipped {
-	
+	position: relative;
+
+	&:before {
+		position: absolute;
+		z-index: 10001;
+		display: none;
+		width: 0;
+		height: 0;
+		color: rgba(0, 0, 0, .8);
+		pointer-events: none;
+		content: "";
+		border: 5px solid rgba(0,0,0,0);
+		border-bottom-color: rgba(0,0,0,.8);
+	}
+
+	&:after {
+		content: attr(aria-label);
+		position: absolute;
+		z-index: 10000;
+		display: none;
+		padding: 5px 8px;
+		font: normal normal 13px/1.5 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		background: rgba(0, 0, 0, .8);
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		text-shadow: none;
+		text-transform: none;
+		letter-spacing: normal;
+		pointer-events: none;
+		word-wrap: break-word;
+		white-space: pre;
+		@include border-radius(3px);
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
+
+	&:hover::before, &:hover::after {
+		display: block;
+	}
 }

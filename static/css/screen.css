@@ -105,6 +105,7 @@ button {
   pointer-events: none;
   content: "";
   border: 5px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
   top: 0px !important;
   margin-top: -10px;
 }
@@ -114,7 +115,65 @@ button {
   right: 50%;
   bottom: -5px;
   margin-right: -5px;
+}
+.tooltipped-c:after, .tooltipped-l:after, .tooltipped-r:after {
+  top: 100%;
+  right: 50%;
+  margin-top: 5px;
+}
+
+.tooltipped-c:after {
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.tooltipped-l:after {
+  right: auto;
+  left: 50%;
+  margin-left: -15px;
+}
+
+.tooltipped {
+  position: relative;
+}
+.tooltipped:before {
+  position: absolute;
+  z-index: 10001;
+  display: none;
+  width: 0;
+  height: 0;
+  color: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  content: "";
+  border: 5px solid transparent;
   border-bottom-color: rgba(0, 0, 0, 0.8);
+}
+.tooltipped:after {
+  content: attr(aria-label);
+  position: absolute;
+  z-index: 10000;
+  display: none;
+  padding: 5px 8px;
+  font: normal normal 13px/1.5 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  pointer-events: none;
+  word-wrap: break-word;
+  white-space: pre;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.tooltipped:hover::before, .tooltipped:hover::after {
+  display: block;
 }
 
 /*# sourceMappingURL=screen.css.map */
